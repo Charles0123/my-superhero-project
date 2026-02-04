@@ -1,0 +1,36 @@
+// 1. 定義顏色變數
+$primary: #42b883;
+$dark: #1a1a1a;
+$gray:#f4f4f4;
+
+// 2. 語意化標籤樣式
+header{
+  background: $dark;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+main{
+  max-width: 800px;
+  margin:20px auto;
+  padding:0 1rem;
+
+  section{
+    background:white;
+    border-radius: 15px;
+    bpx-shadow:0 4px 20px rgba(0,0,0,0.1);
+    padding: 2rem;
+
+    h3{
+      color: $primary;
+      border-bottom: 2px solid $gray;
+      padding-bottom: 10px;
+    }
+  }
+}
+  footer{
+    margin-top:50px;
+    color:#888;
+    font-size:0.8rem;
+  }
