@@ -216,3 +216,33 @@ background: #fcfcfc;
     }
   }
 }
+
+.controls-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+
+  .search-box {
+    input {
+      width: 300px;
+      padding: 10px 15px;
+      border-radius: 25px;
+      border: 2px solid $hero-border;
+      outline: none;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $primary;
+      }
+    }
+  }
+}
+
+.no-result {
+  grid-column: 1 / -1; // 橫跨整個網格
+  text-align: center;
+  color: #888;
+  padding: 40px;
+}
