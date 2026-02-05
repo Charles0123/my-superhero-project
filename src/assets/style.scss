@@ -189,3 +189,30 @@ background: #fcfcfc;
     }
   }
 }
+
+.filter-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  button {
+    background: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background: rgba($primary, 0.1);
+    }
+
+    &.active {
+      background: $primary;
+      color: white;
+    }
+  }
+}
