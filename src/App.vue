@@ -25,6 +25,8 @@ const filteredAndSortedHeroes = computed(() => {
     result.sort((a, b) => b.cards.strength - a.cards.strength);
   } else if (sortBy.value === 'intelligence') {
     result.sort((a, b) => b.cards.intelligence - a.cards.intelligence);
+  } else if (sortBy.value === 'agility') {
+    result.sort((a, b) => b.cards.agility - a.cards.agility);
   }
 
   return result;
@@ -47,6 +49,7 @@ const filteredAndSortedHeroes = computed(() => {
       <div class="filter-controls">
         <button @click="sortBy = 'default'" :class="{ active: sortBy === 'default' }">預設</button>
         <button @click="sortBy = 'strength'" :class="{ active: sortBy === 'strength' }">力量</button>
+        <button @click="sortBy= 'agility'" :class="{ active: sortBy === 'agility' }">敏捷</button>
         <button @click="sortBy = 'intelligence'" :class="{ active: sortBy === 'intelligence' }">智力</button>
       </div>
     </div>

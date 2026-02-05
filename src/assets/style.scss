@@ -23,6 +23,7 @@ header{
   color: white;
   padding: 2rem;
   text-align: center;
+  border-radius:10px 10px 0 0;
 }
 
 main{
@@ -146,7 +147,13 @@ text-align: left; // 覆蓋掉外層 header 的 center
         font-size: 0.8rem;
         font-weight: bold;
         border: 1px solid rgba($hero-green, 0.2);
+        &:hover{
+          cursor: default;
+         transform: translateY(-2px);
+
+        }
       }
+
     }
   }
 
