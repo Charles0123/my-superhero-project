@@ -1,6 +1,6 @@
 <script setup>
 import Post from './components/Post.vue'
-import './assets/style.scss'
+
 </script>
 
 <template>

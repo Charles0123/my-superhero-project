@@ -2,6 +2,20 @@
 $primary: #42b883;
 $dark: #1a1a1a;
 $gray:#f4f4f4;
+$glass-bg:rgba(255,255,255,0.15);
+$glass-border:rgba(255,255,255,0.2);
+
+$types:(
+  "power":#ff4d4d,
+  "speed":#4d79ff,
+  "intel":#42b883
+);
+
+$hero-green:#42b883;
+$hero-dark:#2c3e50;
+$hero-border:#e0e0e0;
+$text-muted:#666;
+
 
 // 2. 語意化標籤樣式
 header{
@@ -19,7 +33,7 @@ main{
   section{
     background:white;
     border-radius: 15px;
-    bpx-shadow:0 4px 20px rgba(0,0,0,0.1);
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
     padding: 2rem;
 
     h3{
@@ -33,4 +47,138 @@ main{
     margin-top:50px;
     color:#888;
     font-size:0.8rem;
+    text-align: center; // 建議加入置中
   }
+
+@mixin glass-effect{
+  background: $glass-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border:1px solid $glass-border;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.15);
+}
+
+// FIX: 自動生成不同類型的標籤顏色 (配合你定義的 $types)
+@each $name, $color in $types {
+  .tag-#{$name} {
+    background: rgba($color, 0.1) !important;
+    color: $color !important;
+    border: 1px solid rgba($color, 0.2) !important;
+  }
+}
+
+article.hero-card{
+  @include glass-effect;
+  padding:2rem;
+  color:#fff;
+  transition:all 0.3 ease;
+
+  &:hover{
+    background: rgba(255,255,255,0.25);
+    transform:translateY(-5px)
+  }
+}
+
+.hero-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid $hero-border;
+  margin: 0 auto 20px; // 置中並給下方間距
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  }
+  // 玻璃擬態版切換 (如果要用玻璃感，在 HTML 加上 .is-glass 即可)
+  &.is-glass {
+    @include glass-effect;
+    background: rgba(255, 255, 255, 0.7); // 稍微調高不透明度才看得見字
+  }
+
+  header {
+    background: $hero-dark;
+    padding: 20px;
+    color: white;
+text-align: left; // 覆蓋掉外層 header 的 center
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .alias {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      font-style: italic;
+    }
+  }
+
+  .content {
+    padding: 20px;
+
+    .description {
+      color: $text-muted;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .tag {
+        background: rgba($hero-green, 0.1);
+        color: $hero-green;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        border: 1px solid rgba($hero-green, 0.2);
+      }
+    }
+  }
+
+  footer {
+    background: #f9f9f9;
+    padding: 20px;
+    border-top: 1px solid $hero-border;
+margin-top: 0; // 覆蓋掉外層 footer 的 margin-top
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: $hero-dark;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: space-around;
+
+      .stat-item {
+        text-align: center;
+        
+        .label {
+          display: block;
+          font-size: 0.75rem;
+          color: #888;
+          text-transform: uppercase;
+        }
+
+        .value {
+          display: block;
+          font-size: 1.2rem;
+          font-weight: 800;
+          color: $hero-dark;
+        }
+      }
+    }
+  }
+}
