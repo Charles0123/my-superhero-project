@@ -34,7 +34,17 @@ defineProps({
       <span class="tag tag-intel">科技工程</span>
     </div>
   </section>
-
+<main>
+  <section>
+    <h3>英雄名單</h3>
+    <div class="hero-grid">
+      <article class="hero-card"> ... </article>
+      <article class="hero-card"> ... </article>
+      <article class="hero-card"> ... </article>
+      <article class="hero-card"> ... </article>
+    </div>
+  </section>
+</main>
   <footer>
     <h3>戰鬥規格</h3>
     <div class="stats-grid">

@@ -89,7 +89,11 @@ article.hero-card{
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid $hero-border;
   margin: 0 auto 20px; // 置中並給下方間距
-
+display: flex;
+  flex-direction: column;
+.content {
+    flex-grow: 1; // 這行很重要！它會把內容撐開，讓 footer 永遠對齊底部
+  }
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
@@ -151,6 +155,9 @@ text-align: left; // 覆蓋掉外層 header 的 center
     padding: 20px;
     border-top: 1px solid $hero-border;
 margin-top: 0; // 覆蓋掉外層 footer 的 margin-top
+background: #fcfcfc;
+    border-top: 1px dashed $hero-border; // 改成虛線更有設計感
+
     h3 {
       font-size: 1rem;
       margin-bottom: 15px;
