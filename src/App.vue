@@ -57,4 +57,8 @@ const filteredAndSortedHeroes = computed(() => {
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
+body {
+  background-color: #05080a; /* 極黑背景 */
+  margin: 0;
+}
 </style>

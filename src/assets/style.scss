@@ -94,6 +94,7 @@ article.hero-card{
   margin: 0 auto 20px; // 置中並給下方間距
 display: flex;
   flex-direction: column;
+  
 .content {
     flex-grow: 1; // 這行很重要！它會把內容撐開，讓 footer 永遠對齊底部
   }
@@ -455,4 +456,23 @@ position: relative;
       font-weight: bold;
     }
   }
+}
+
+/* Super Hero Academy Header */
+.header-academy { /* 這個是你頂部標題的容器 */
+  background: rgba(10, 20, 30, 0.8); /* 深藍色半透明 */
+  backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
+  border-bottom: 2px solid rgba(0, 255, 255, 0.5); /* 底部科技感光邊 */
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2); /* 微微發光 */
+  padding: 20px 0;
+  text-align: center;
+  position: sticky; /* 滾動時固定在頂部 */
+  top: 0;
+  z-index: 1000;
+  font-family: 'Space Mono', monospace; /* 建議使用科幻字體 */
+  color: #00f2ff; /* 亮青色 */
+  letter-spacing: 3px;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
 }
