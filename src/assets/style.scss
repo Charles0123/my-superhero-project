@@ -253,3 +253,31 @@ background: #fcfcfc;
   color: #888;
   padding: 40px;
 }
+
+/* 路由過渡動畫 */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+/* 技能卡片專屬樣式 */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 兩欄展示技能
+  gap: 20px;
+  
+  .skill-item {
+    display: flex;
+    align-items: center;
+    background: rgba(white, 0.05);
+    border-left: 4px solid $primary;
+    padding: 15px;
+    border-radius: 8px;
+    
+    &:hover {
+      background: rgba($primary, 0.1);
+    }
+  }
+}
