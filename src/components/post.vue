@@ -5,6 +5,7 @@ const props = defineProps({
     type: Object,
     required: true,
     default: () => ({
+      id: 'unknown', // 記得補上 id 預設值
       name: '未知英雄',
       alias: '無名氏',
       powers: [],
@@ -16,10 +17,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <article class="hero-card">
+  <article class="hero-card clickable" @click="$router.push(`/skills/${hero.id}`)">
     <header>
-      <h2>{{ hero.name }}</h2>
-      <p class="alias">{{ hero.alias }}</p>
+      <div class="header-main">
+        <h2>{{ hero.name }}</h2>
+        <p class="alias">{{ hero.alias }}</p>
+      </div>
+      <small class="hint">點擊查看詳情</small>
     </header>
 
     <section class="content">
@@ -53,8 +57,24 @@ const props = defineProps({
         <div class="stat-item">
           <span class="label">智力</span>
           <span class="value">{{ hero.cards.intelligence }}</span>
-        </div>``
+        </div>
       </div>
     </footer>
   </article>
 </template>
+
+<style lang="scss" scoped>
+.hero-card.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .hint {
+    color: #42b883;
+    font-size: 0.75rem;
+  }
+}
+</style>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "iron-man",
+    "name": "鋼鐵人",
+    "alias": "Tony Stark",
+    "description": "天才、億萬富翁、花花公子、慈善家，擁有頂尖科技裝甲。",
+    "cards": { "strength": 85, "agility": 70, "intelligence": 99 },
+    "powers": ["飛行", "能量炮", "科技工程"],
+    "skills": [
+      { "name": "方舟反應爐脈衝", "effect": "從胸口釋放強大的衝擊波，造成大規模能量傷害。", "cd": 12 },
+      { "name": "維羅妮卡衛星補給", "effect": "召喚浩克毀滅者零件進行空中替換，恢復 50% 生命值。", "cd": 45 }
+    ]
+  },
+  {
+    "id": "captain-america",
+    "name": "美國隊長",
+    "alias": "Steve Rogers",
+    "description": "二戰英雄，注入超級士兵血清，是復仇者聯盟的精神領袖。",
+    "cards": { "strength": 90, "agility": 80, "intelligence": 85 },
+    "powers": ["格鬥大師", "超級體能", "戰術指揮"],
+    "skills": [
+      { "name": "盾牌反彈擊", "effect": "投擲振金盾牌，在多個敵人之間彈跳並造成暈眩。", "cd": 8 },
+      { "name": "自由意志衝鋒", "effect": "舉盾衝刺，免疫所有控制效果並擊退路徑上的敵人。", "cd": 15 }
+    ]
+  },
+  {
+    "id": "spider-man",
+    "name": "蜘蛛人",
+    "alias": "Peter Parker",
+    "description": "被放射性蜘蛛咬傷後獲得超能力，是皇后區的好鄰居。",
+    "cards": { "strength": 75, "agility": 98, "intelligence": 92 },
+    "powers": ["蜘蛛感應", "牆壁攀爬", "蛛絲噴射"],
+    "skills": [
+      { "name": "蛛絲網陷阱", "effect": "發射大量蛛網，將目標束縛在原地 3 秒。", "cd": 10 },
+      { "name": "彼得百靈感應", "effect": "進入極限專注狀態，接下來 5 秒內閃避所有攻擊。", "cd": 20 }
+    ]
+  },
+  {
+    "id": "thor",
+    "name": "雷神索爾",
+    "alias": "Thor Odinson",
+    "description": "奧丁之子，雷霆之神，手持妙爾尼爾掌控風暴。",
+    "cards": { "strength": 99, "agility": 75, "intelligence": 80 },
+    "powers": ["雷霆之力", "長壽", "超級力量"],
+    "skills": [
+      { "name": "雷神之槌召喚", "effect": "召喚雷電擊中槌子並重擊地面，產生圓形區域電擊。", "cd": 14 },
+      { "name": "彩虹橋衝擊", "effect": "跨次元降臨，對降落點周圍造成毀滅性真實傷害。", "cd": 60 }
+    ]
+  },
+  {
+    "id": "doctor-strange",
+    "name": "奇異博士",
+    "alias": "Stephen Strange",
+    "description": "至尊魔法師，守護著地球免受神秘威脅。",
+    "cards": { "strength": 50, "agility": 65, "intelligence": 100 },
+    "powers": ["秘術魔法", "時間操縱", "跨維度傳送"],
+    "skills": [
+      { "name": "艾克恩之形", "effect": "創造多個幻象分身，混淆敵人並同時發射魔法箭。", "cd": 25 },
+      { "name": "鏡像空間", "effect": "將敵方拉入鏡像維度，隔離其與外界的任何增益聯繫。", "cd": 40 }
+    ]
+  },
+  {
+    "id": "black-widow",
+    "name": "黑寡婦",
+    "alias": "Natasha Romanoff",
+    "description": "前蘇聯間諜，頂尖暗殺者與格鬥專家。",
+    "cards": { "strength": 65, "agility": 95, "intelligence": 90 },
+    "powers": ["秘密行動", "戰術大師", "雙槍射擊"],
+    "skills": [
+      { "name": "寡婦蜇電擊", "effect": "利用護腕發射高壓電擊，癱瘓目標神經系統。", "cd": 7 },
+      { "name": "影子舞蹈", "effect": "進入隱身狀態並在背後發動致命一擊，傷害翻倍。", "cd": 18 }
+    ]
+  }
+]

@@ -281,3 +281,102 @@ background: #fcfcfc;
     }
   }
 }
+
+.skill-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .hero-detail-header {
+    margin-bottom: 40px;
+    border-bottom: 2px solid $primary;
+    padding-bottom: 20px;
+
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 10px;
+      a { color: $primary; text-decoration: none; }
+    }
+
+    h1 { font-size: 3rem; margin: 0; color: $dark; }
+  }
+
+  .layout-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr; // 2:1 的比例
+    gap: 40px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; // 手機版變一欄
+    }
+  }
+
+  // 技能卡片樣式
+  .skill-card {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid $primary;
+    transition: transform 0.3s;
+
+    &:hover { transform: scale(1.02); }
+
+    .skill-icon {
+      font-size: 2rem;
+      background: $gray;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    h3 { margin-top: 0; color: $hero-dark; }
+    
+    .cd-tag {
+      font-size: 0.8rem;
+      background: #eee;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+  }
+
+  // 側邊欄樣式
+  .hero-sidebar {
+    section {
+      background: $hero-dark;
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+
+      h3 { border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; }
+    }
+  }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; // 左邊技能區佔 2 份，右邊數值區佔 1 份
+  gap: 30px;
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // 手機版改為單欄
+  }
+}
+
+.skill-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-left: 4px solid #42b883; // 使用你定義的 $primary
+  margin-bottom: 1rem;
+}
