@@ -35,7 +35,7 @@ const hero = computed(() => {
   
   <main v-else-if="hero" class="skill-view">
     <header class="hero-banner">
-      <button @click="$router.push('/')" class="back-btn">← 返回列表</button>
+      <button @click="$router.push('/')" class="back-btn">返回列表</button>
       <h1>{{ hero.name }}</h1>
       <p class="alias">{{ hero.alias }}</p>
     </header>

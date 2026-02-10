@@ -18,7 +18,7 @@ const filteredHeroes = computed(() => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="search-container">
     <div class="search-bar">
       <input v-model="searchQuery" placeholder="搜尋英雄...">
     </div>
