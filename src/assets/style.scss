@@ -360,3 +360,23 @@ background: #fcfcfc;
     }
   }
 }
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; // 左邊技能區佔 2 份，右邊數值區佔 1 份
+  gap: 30px;
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // 手機版改為單欄
+  }
+}
+
+.skill-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-left: 4px solid #42b883; // 使用你定義的 $primary
+  margin-bottom: 1rem;
+}

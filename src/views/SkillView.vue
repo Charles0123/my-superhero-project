@@ -1,69 +1,70 @@
+<script setup>
+import { ref, onMounted, computed } from 'vue'
+
+// 接收來自路由的 :id 參數
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  }
+})
+
+const allHeroes = ref([])
+const loading = ref(true)
+
+onMounted(async () => {
+  try {
+    // 因為 heroes.json 在 public，路徑直接寫 /heroes.json 即可
+    const response = await fetch('/heroes.json')
+    allHeroes.value = await response.json()
+  } catch (error) {
+    console.error('資料載入失敗:', error)
+  } finally {
+    loading.value = false
+  }
+})
+
+// 透過 ID 比對找出該位英雄
+const hero = computed(() => {
+  return allHeroes.value.find(h => h.id === props.id)
+})
+</script>
+
 <template>
-  <main class="skill-page-container">
-    
-    <header class="hero-detail-header">
-      <nav class="breadcrumb">
-        <router-link to="/">首頁</router-link> / <span>{{ hero.name }} 技能詳解</span>
-      </nav>
+  <div v-if="loading" class="loading">載入中...</div>
+  
+  <main v-else-if="hero" class="skill-view">
+    <header class="hero-banner">
+      <button @click="$router.push('/')" class="back-btn">← 返回列表</button>
       <h1>{{ hero.name }}</h1>
-      <p class="hero-subtitle">{{ hero.alias }}</p>
+      <p class="alias">{{ hero.alias }}</p>
     </header>
 
-    <div class="layout-wrapper">
-      <section class="skills-section">
-        <header>
-          <h2>特殊技能 (Special Abilities)</h2>
-        </header>
-        
-        <div class="skills-list">
-          <article v-for="skill in hero.skills" :key="skill.name" class="skill-card">
-            <div class="skill-icon">
-              <i class="icon-bolt"></i>
-            </div>
-            <div class="skill-body">
+    <div class="content-grid">
+      <section class="skills-list">
+        <h2>特殊技能詳解</h2>
+        <div class="grid">
+          <article v-for="skill in hero.skills" :key="skill.name" class="skill-item">
+            <div class="skill-header">
               <h3>{{ skill.name }}</h3>
-              <p>{{ skill.effect }}</p>
-              <footer class="skill-meta">
-                <span class="cd-tag">CD: {{ skill.cd }}s</span>
-              </footer>
+              <span class="cd">CD: {{ skill.cd }}s</span>
             </div>
+            <p>{{ skill.effect }}</p>
           </article>
         </div>
       </section>
 
-      <aside class="hero-sidebar">
-        <section class="bio-box">
-          <h3>英雄簡介</h3>
-          <p>{{ hero.description }}</p>
-        </section>
-
-        <section class="stats-box">
-          <h3>能力分配</h3>
-          <ul>
-            <li>力量: {{ hero.cards.strength }}</li>
-            <li>敏捷: {{ hero.cards.agility }}</li>
-            <li>智力: {{ hero.cards.intelligence }}</li>
-          </ul>
-        </section>
+      <aside class="hero-stats">
+        <h3>英雄屬性</h3>
+        <div class="stat-bar">力量: {{ hero.cards.strength }}</div>
+        <div class="stat-bar">敏捷: {{ hero.cards.agility }}</div>
+        <div class="stat-bar">智力: {{ hero.cards.intelligence }}</div>
       </aside>
     </div>
-
-    <footer class="page-footer">
-      <button @click="$router.push('/')" class="back-btn">返回英雄列表</button>
-    </footer>
-
   </main>
+
+  <div v-else class="error">
+    <h2>找不到該英雄資料</h2>
+    <router-link to="/">回到首頁</router-link>
+  </div>
 </template>
-
-<script setup>
-import { computed } from 'vue';
-import heroesData from '../data/heroes.json';
-
-// 接收路由傳過來的 ID
-const props = defineProps(['id']);
-
-// 根據 ID 從 JSON 中找到對應的英雄資料
-const hero = computed(() => {
-  return heroesData.find(h => h.id === props.id) || heroesData[0];
-});
-</script>
