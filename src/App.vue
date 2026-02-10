@@ -35,36 +35,26 @@ const filteredAndSortedHeroes = computed(() => {
 
 <template>
   <header class="site-header">
-    <h1>英雄管理系統</h1>
-    
-    <div class="controls-bar">
-      <div class="search-box">
-        <input 
-          type="text" 
-          v-model="searchQuery" 
-          placeholder="搜尋英雄名稱或別名..."
-        >
-      </div>
-
-      <div class="filter-controls">
-        <button @click="sortBy = 'default'" :class="{ active: sortBy === 'default' }">預設</button>
-        <button @click="sortBy = 'strength'" :class="{ active: sortBy === 'strength' }">力量</button>
-        <button @click="sortBy= 'agility'" :class="{ active: sortBy === 'agility' }">敏捷</button>
-        <button @click="sortBy = 'intelligence'" :class="{ active: sortBy === 'intelligence' }">智力</button>
-      </div>
-    </div>
+    <h1>超級英雄學院</h1>
   </header>
 
-  <main>
-    <div class="hero-grid">
-      <Post 
-        v-for="item in filteredAndSortedHeroes" 
-        :key="item.name" 
-        :hero="item" 
-      />
-      <p v-if="filteredAndSortedHeroes.length === 0" class="no-result">
-        找不到符合 "{{ searchQuery }}" 的英雄
-      </p>
-    </div>
-  </main>
+  <router-view v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+
+  <footer>
+    <p>&copy; 2026 Superhero Project</p>
+  </footer>
 </template>
+
+<style lang="scss">
+/* 簡單的切換動畫 */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>

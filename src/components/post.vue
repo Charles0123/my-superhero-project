@@ -21,7 +21,12 @@ const props = defineProps({
       <h2>{{ hero.name }}</h2>
       <p class="alias">{{ hero.alias }}</p>
     </header>
-
+<article class="hero-card" @click="$router.push(`/skills/${hero.id}`)">
+  <header>
+    <h2>{{ hero.name }}</h2>
+    <small>點擊查看技能</small>
+  </header>
+  </article>
     <section class="content">
       <p class="description">{{ hero.description }}</p>
       <div class="tags">
