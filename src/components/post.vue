@@ -22,8 +22,10 @@ const props = defineProps({
       <div class="header-main">
         <h2>{{ hero.name }}</h2>
         <p class="alias">{{ hero.alias }}</p>
+         <small class="hint">點擊查看詳情</small>
       </div>
-      <small class="hint">點擊查看詳情</small>
+      <img  :src="`/images/${hero.alias}.jpg`" :alt="hero.name">
+     
     </header>
 
     <section class="content">
@@ -61,6 +63,7 @@ const props = defineProps({
       </div>
     </footer>
   </article>
+  
 </template>
 
 <style lang="scss" scoped>
@@ -76,5 +79,35 @@ const props = defineProps({
     color: #42b883;
     font-size: 0.75rem;
   }
+}
+
+.hero-card {
+  background: rgba(20, 20, 25, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: #00f2ff;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+}
+
+.hero-avatar {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #00f2ff;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); /* 切角造型 */
+  object-fit: cover;
+}
+
+/* 戰鬥規格數據條特效 */
+.stat-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px;
+  border-left: 3px solid #ff4444; /* 力量用紅色 */
 }
 </style>

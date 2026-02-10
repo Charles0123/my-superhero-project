@@ -80,7 +80,9 @@ article.hero-card{
     transform:translateY(-5px)
   }
 }
-
+.hero-grid{
+  background-color: $dark;
+}
 .hero-card {
   background: white;
   border-radius: 16px;
@@ -110,6 +112,10 @@ display: flex;
     padding: 20px;
     color: white;
 text-align: left; // 覆蓋掉外層 header 的 center
+display: flex;
+.header-main{
+  margin: auto;
+}
     h2 {
       margin: 0;
       font-size: 1.5rem;
@@ -121,6 +127,9 @@ text-align: left; // 覆蓋掉外層 header 的 center
       font-size: 0.9rem;
       opacity: 0.8;
       font-style: italic;
+    }
+    img{
+      width: 150px;
     }
   }
 

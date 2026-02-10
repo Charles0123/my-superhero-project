@@ -19,9 +19,9 @@ const filteredHeroes = computed(() => {
 
 <template>
   <div class="search-container">
-    <div class="search-bar">
+    <!-- <div class="search-bar">
       <input v-model="searchQuery" placeholder="搜尋英雄...">
-    </div>
+    </div> -->
     <div class="hero-grid">
       <Post v-for="hero in filteredHeroes" :key="hero.id" :hero="hero" />
     </div>
